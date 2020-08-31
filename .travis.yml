@@ -1,0 +1,22 @@
+sudo: required
+services:
+        - docker
+before_install:
+        - docker build -t tonyhong8/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+        - docker run -e CI=true tonyhong8/react-test npm test 
+ 
+after_success:
+        - docker build -t tonyhong8/multi-client ./client
+        - docker build -t tonyhong8/multi-nginx ./nginx
+        - docker build -t tonyhong8/multi-server ./server
+        - docker build -t tonyhong8/multi-worker ./worker
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+        - docker push tonyhong8/multi-client
+        - docker push tonyhong8/multi-nginx
+        - docker push tonyhong8/multi-server
+        - docker push tonyhong8/multi-worker
+
+
+
