@@ -5,7 +5,7 @@
 			"name":"client",
 			"image": "tonyhong568/multi-client",
 			"hostname": "client",
-			"essential": false,
+			"essential": false
 		},
 		{
 			"name":"server",
