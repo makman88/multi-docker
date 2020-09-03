@@ -12,7 +12,7 @@
 			"name":"server",
 			"image":"tonyhong568/multi-server",
 			"hostname":"api",
-			"essential":false,
+			"essential":true,
 			"memory": 128
 
 		},
@@ -21,19 +21,6 @@
 			"image":"tonyhong568/multi-worker",
 			"hostname":"worker",
 			"essential":false,	
-			"memory": 128
-		},
-		{
-			"name":"nginx",
-			"image":"tonyhong568/multi-nginx",
-			"hostname":"nginx",
-			"essential":true,	
-			"portMappings": [
-			{
-				"hostPort": 80,
-				"containerPort": 80
-			}
-			],
 			"memory": 128
 		}
 	]
