@@ -1,6 +1,13 @@
 {
 	"AWSEBDockerrunVersion": 2,
 	"containerDefinitions": [
+	        {
+                      "name":"client",
+                      "image": "tonyhong568/multi-client",
+                      "hostname": "client",
+                      "essential": false,
+                      "memory": 128
+                },
 		{
 			"name":"server",
 			"image":"tonyhong568/multi-server",
